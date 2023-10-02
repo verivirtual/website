@@ -1,0 +1,21 @@
+{
+  "name": "verivirtual",
+  "version": "1.0.0",
+  "description": "Website",
+  "scripts": {
+    "stw": "npx tailwindcss -i ./src/styles.css -o ./assets/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verivirtual/website.git"
+  },
+  "author": "VeriVirtual",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/verivirtual/website/issues"
+  },
+  "homepage": "https://github.com/verivirtual/website#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
