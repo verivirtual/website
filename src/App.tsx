@@ -1,11 +1,6 @@
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import loading from "./assets/images/loading.gif";
+import React from "react";
 
 function App() {
   return (
@@ -20,13 +15,29 @@ function App() {
 }
 
 function Intro() {
-  const navigate = useNavigate();
+  const vidRef = React.useRef<HTMLVideoElement | null>(null);
+  const playingRef = React.useRef<boolean>(false);
   return (
-    <div
-      className="w-full h-full flex-1 bg-contain bg-no-repeat bg-center justify-center items-center cursor-pointer"
-      style={{ backgroundImage: `url(${loading})` }}
-      onClick={() => navigate("/vv")}
-    />
+    <div className="flex flex-1 flex-col justify-center items-center">
+      <video
+        ref={vidRef}
+        playsInline
+        disablePictureInPicture
+        src="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4"
+        poster={loading}
+        className="w-full h-full object-contain cursor-pointer"
+        onClick={() => {
+          if (vidRef.current) {
+            if (playingRef.current) {
+              vidRef.current.pause();
+            } else {
+              vidRef.current.play();
+            }
+            playingRef.current = !playingRef.current;
+          }
+        }}
+      />
+    </div>
   );
 }
 
