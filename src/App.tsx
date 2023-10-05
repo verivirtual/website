@@ -35,8 +35,8 @@ function Video() {
     <div className="flex flex-1 flex-col justify-center items-center">
       <video
         autoPlay
-        playsInline
-        src="https://d3gpdaqrcqt21a.cloudfront.net/3v.mp4"
+        disablePictureInPicture
+        src="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4"
         className="w-full h-full object-contain"
       />
     </div>
