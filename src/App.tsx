@@ -22,6 +22,7 @@ function Intro() {
       <video
         ref={vidRef}
         playsInline
+        loop
         disablePictureInPicture
         src="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4"
         poster={loading}
