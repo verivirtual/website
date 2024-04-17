@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import loading from "./assets/images/loading.gif";
 import aboutPoster from "./assets/images/about-poster.jpg";
+import protoPoster from "./assets/images/proto-poster.jpg";
 import logo from "./assets/images/logo.png";
 import React from "react";
 import { TriangleRightIcon } from "@radix-ui/react-icons";
@@ -29,19 +30,25 @@ function Intro() {
     );
   }
   return (
-    <div className="flex flex-1 flex-grow flex-col justify-center items-center py-4">
+    <div
+      className="flex flex-1 flex-grow flex-col justify-center items-center py-4"
+      style={{ backgroundColor: "#090909" }}
+    >
       <div className="flex justify-center">
         <img src={logo} alt="3V logo" className="max-w-sm" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2 px-2 items-center">
         <div className="text-center order-2 md:order-1">
-          <VideoContainer url="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4" />
+          <VideoContainer
+            url="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4"
+            poster={protoPoster}
+          />
           <span className="text-lg">Prototype</span>
         </div>
         <div className="text-center order-1 md:order-2">
           <VideoContainer
             url="https://d19m8pewllwwe8.cloudfront.net/about.mp4"
-            poster
+            poster={aboutPoster}
           />
           <span className="text-lg">About</span>
         </div>
@@ -73,7 +80,7 @@ function Intro() {
   // );
 }
 
-function VideoContainer({ url, poster }: { url: string; poster?: boolean }) {
+function VideoContainer({ url, poster }: { url: string; poster: string }) {
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const [btnHidden, setHideButton] = React.useState<boolean>(false);
   const onEnded = React.useCallback(() => {
@@ -98,7 +105,7 @@ function VideoContainer({ url, poster }: { url: string; poster?: boolean }) {
       />
       <video
         ref={(r) => (videoRef.current = r)}
-        poster={poster ? aboutPoster : undefined}
+        poster={poster}
         disablePictureInPicture
         src={url}
         className="w-full h-full object-contain"
