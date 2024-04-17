@@ -22,37 +22,68 @@ function Intro() {
   if (showLogo) {
     return (
       <div
-        className="flex flex-1 justify-center items-center h-full w-full hover:cursor-pointer"
+        className="flex flex-1 flex-col justify-center items-center h-full w-full hover:cursor-pointer"
         onClick={() => setShowLogo(false)}
       >
         <img src={loading} alt="3V logo" title="Click to enter" />
+        <Footer sticky />
       </div>
     );
   }
   return (
     <div
-      className="flex flex-1 flex-grow flex-col justify-center items-center py-4"
+      className="flex flex-1 flex-grow flex-col justify-center items-center py-4 gap-y-8 md:gap-y-12"
       style={{ backgroundColor: "#090909" }}
     >
       <div className="flex justify-center">
         <img src={logo} alt="3V logo" className="max-w-sm" />
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 px-8 items-center">
+        <div className="text-justify">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum
+        </div>
+        <div className="text-justify">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum
+        </div>
+      </div>
+      <div className="text-center mb-8">
+        For more information, contact the team at
+        <br />
+        {`info <at> verivirtual <dot> com`}
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2 px-2 items-center">
         <div className="text-center order-2 md:order-1">
+          <div className="text-lg mb-4">Prototype</div>
           <VideoContainer
             url="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4"
             poster={protoPoster}
           />
-          <span className="text-lg">Prototype</span>
         </div>
         <div className="text-center order-1 md:order-2">
+          <div className="text-lg mb-4">About</div>
           <VideoContainer
-            url="https://d19m8pewllwwe8.cloudfront.net/about.mp4"
+            url="https://d35w2e6bivcda.cloudfront.net/about.mp4"
             poster={aboutPoster}
           />
-          <span className="text-lg">About</span>
         </div>
       </div>
+      <Footer />
     </div>
   );
   // return (
@@ -138,6 +169,17 @@ function PlayButton({
   );
 }
 
+function Footer({ sticky }: { sticky?: boolean }) {
+  return (
+    <div
+      className={`w-full text-left p-4 text-sm ${
+        sticky ? "absolute bottom-2" : ""
+      }`}
+    >
+      Copyright©️ 2024 Verivirtual Limited
+    </div>
+  );
+}
 // function Video() {
 //   return (
 //     <div className="flex flex-1 flex-col justify-center items-center">
