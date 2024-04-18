@@ -11,7 +11,7 @@ export default function Intro() {
     <Page>
       <div className="flex flex-1 flex-grow flex-col justify-center items-center py-4 gap-y-8 md:gap-y-12 mb-4">
         <div className="flex justify-center">
-          <img src={logo} alt="3V logo" className="max-w-xs" />
+          <img src={logo} alt="3V logo" className="max-h-[200px]" />
         </div>
         <div className="flex flex-col px-8 items-center gap-8 max-w-3xl text-justify lg:text-center">
           <div>
