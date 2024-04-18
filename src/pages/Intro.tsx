@@ -13,7 +13,7 @@ export default function Intro() {
           <img src={logo} alt="3V logo" className="max-w-sm" />
         </div>
         <div className="flex flex-col px-8 items-center">
-          <div className="text-justify">
+          <div className="text-justify max-w-6xl">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -40,7 +40,11 @@ export default function Intro() {
         <div className="text-center">
           For more information, contact the team at
           <br />
-          {`info <at> verivirtual <dot> com`}
+          <div className="flex justify-center">
+            <div className="border-b border-white hover:border-b-0 hover:cursor-pointer">
+              <a className="link-text" href="#">info AT verivirtual DOT com</a>
+            </div>
+          </div>
         </div>
       </div>
     </Page>
