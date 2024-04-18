@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: 'ABC Whyte';
+	src: url('./assets/fonts/ABCWhyte-Book.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'ABC Whyte';
+	src: url('./assets/fonts/ABCWhyte-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
 html,
 body {
   width: 100%;
@@ -9,7 +25,7 @@ body {
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "ABC Whyte", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
