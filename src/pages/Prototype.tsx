@@ -6,7 +6,7 @@ export default function Prototype() {
   return (
     <Page showBack>
       <VideoContainer
-        url="https://d3gpdaqrcqt21a.cloudfront.net/3v_2.mp4"
+        url="https://d35w2e6bivcda.cloudfront.net/proto.mp4"
         poster={protoPoster}
         title="3V Prototype"
       />

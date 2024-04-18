@@ -10,7 +10,7 @@ export default function Page({
 }) {
   const navigate = useNavigate();
   return (
-    <div className="flex min-h-full flex-col justify-between">
+    <div className="flex h-full flex-col justify-between">
       {showBack ? (
         <div
           className="hover:cursor-pointer absolute p-4"

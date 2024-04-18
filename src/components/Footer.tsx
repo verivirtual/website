@@ -5,7 +5,7 @@ export default function Footer({ sticky }: { sticky?: boolean }) {
         sticky ? "absolute bottom-2" : ""
       }`}
     >
-      Copyright©️ 2024 Verivirtual Limited
+      Copyright© 2024 Verivirtual Limited
     </div>
   );
 }

@@ -39,7 +39,7 @@ export default function VideoContainer({
           poster={poster}
           disablePictureInPicture
           src={url}
-          className="h-full object-contain max-w-[848px]"
+          className="object-contain max-w-[848px] max-h-[848px]"
           controls={btnHidden}
         />
       </div>
