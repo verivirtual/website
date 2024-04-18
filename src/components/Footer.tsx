@@ -1,7 +1,7 @@
-export default function Footer({ sticky }: { sticky?: boolean }) {
+export default function Footer({ sticky }: Readonly<{ sticky?: boolean }>) {
   return (
     <div
-      className={`w-full text-left p-0 md:p-4 text-sm ${
+      className={`w-full text-center p-0 md:p-4 text-sm ${
         sticky ? "absolute bottom-1" : ""
       }`}
     >
