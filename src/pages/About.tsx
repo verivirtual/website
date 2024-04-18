@@ -8,7 +8,7 @@ export default function About() {
       <VideoContainer
         url="https://d35w2e6bivcda.cloudfront.net/about.mp4"
         poster={aboutPoster}
-        title="About 3V"
+        title="About"
       />
     </Page>
   );

@@ -12,6 +12,7 @@ export default function VideoContainer({
 }) {
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const [btnHidden, setHideButton] = React.useState<boolean>(false);
+  const vidContainerRef = React.useRef<HTMLDivElement | null>(null);
   const onEnded = React.useCallback(() => {
     setHideButton(false);
     videoRef.current?.removeEventListener("ended", onEnded);
@@ -21,10 +22,31 @@ export default function VideoContainer({
     setHideButton(false);
     videoRef.current?.removeEventListener("pause", onPaused);
   }, []);
+  React.useEffect(() => {
+    const onresize = () => {
+      if (vidContainerRef.current) {
+        const cs = getComputedStyle(vidContainerRef.current);
+        const vidStyle = videoRef.current?.style;
+        if (vidStyle) {
+          vidStyle.width = `${cs.width}px`;
+          vidStyle.height = `${cs.height}px`;
+        }
+      }
+    };
+    onresize();
+    window.addEventListener("resize", onresize);
+    window.scrollTo(0, 0);
+    return () => {
+      window.removeEventListener("resize", onresize);
+    };
+  }, []);
   return (
-    <div className="flex-col flex flex-1 items-center justify-center">
+    <div className="flex flex-col items-center justify-center h-[100dvh]">
       <div className="text-lg mb-4">{title}</div>
-      <div className="flex-col flex items-center justify-center">
+      <div
+        className="flex-col flex flex-grow-0 items-center justify-center overflow-hidden"
+        ref={(r) => (vidContainerRef.current = r)}
+      >
         <PlayButton
           hidden={btnHidden}
           onClick={() => {
@@ -36,10 +58,10 @@ export default function VideoContainer({
         />
         <video
           ref={(r) => (videoRef.current = r)}
-          poster={poster}
           disablePictureInPicture
+          poster={poster}
           src={url}
-          className="object-contain max-w-[848px] max-h-[848px]"
+          className="object-contain"
           controls={btnHidden}
         />
       </div>
@@ -57,7 +79,7 @@ function PlayButton({
   const [iconColor, setIconColor] = React.useState<string>("text-black");
   return (
     <div
-      className="text-center absolute w-[75px] h-[60px] bg-[#f9f9f9] hover:bg-black hover:cursor-pointer z-10"
+      className="text-center absolute w-[70px] h-[55px] bg-[#f9f9f9] hover:bg-black hover:cursor-pointer z-10"
       style={{ display: hidden ? "none" : "" }}
       onMouseEnter={() => setIconColor("text-white")}
       onMouseLeave={() => setIconColor("text-black")}

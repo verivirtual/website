@@ -10,10 +10,10 @@ export default function Page({
 }) {
   const navigate = useNavigate();
   return (
-    <div className="flex h-full flex-col justify-between">
+    <div className="flex flex-col justify-between h-[100dvh]">
       {showBack ? (
         <div
-          className="hover:cursor-pointer absolute p-4"
+          className="hover:cursor-pointer absolute p-0 md:p-4"
           onClick={() => navigate(-1)}
         >
           <ArrowLeftIcon width="32px" height="32px" />
