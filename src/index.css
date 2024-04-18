@@ -15,7 +15,7 @@ body {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #090909;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -93,4 +93,12 @@ body,
 #root {
   width: 100%;
   height: 100%;
+}
+
+.link-text {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.link-text:hover {
+  color: rgba(255, 255, 255, 0.87);
 }
