@@ -14,7 +14,7 @@ export default function Intro() {
           <div className="flex justify-center">
             <img src={logo} alt="3V logo" className="max-h-[200px]" />
           </div>
-          <div className="flex flex-col px-8 items-center gap-8 max-w-3xl text-justify lg:text-center">
+          <div className="flex flex-col px-8 items-center gap-8 max-w-3xl text-center">
             <div>
               We take exceptional and construction-ready architectural designs
               and create full digital twins in the world's best games engine.
@@ -31,14 +31,14 @@ export default function Intro() {
         <VideoContainer
           url="https://d35w2e6bivcda.cloudfront.net/about.mp4"
           poster={aboutPoster}
-          title="Our Mission"
+          title="OUR MISSION"
           playing={playing}
           setPlaying={setPlaying}
         />
         <VideoContainer
           url="https://d35w2e6bivcda.cloudfront.net/proto.mp4"
           poster={protoPoster}
-          title="Prototype"
+          title="PROTOTYPE"
           playing={playing}
           setPlaying={setPlaying}
         />
@@ -55,7 +55,7 @@ export default function Intro() {
           </div>
         </div> */}
         <div className="text-center">
-          <div className="mb-4">Contact</div>
+          <div className="mb-4">CONTACT</div>
           To join the community or discuss your project to go verivirtual,
           please contact us at:
           <br />
@@ -123,7 +123,7 @@ function VideoContainer({
   // }, []);
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mb-4">{title}</div>
+      <div className="mb-8">{title}</div>
       <div
         className="flex-col flex flex-grow-0 items-center justify-center overflow-hidden"
         ref={(r) => (vidContainerRef.current = r)}
