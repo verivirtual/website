@@ -31,7 +31,7 @@ function Welcome() {
   const [fadeOut, setFadeOut] = React.useState<boolean>(false);
   return (
     <div
-      className={`flex flex-1 flex-col justify-between items-center h-[100dvh] hover:cursor-pointer ${
+      className={`flex flex-1 flex-col justify-between items-center h-[100dvh] max-h-[100dvh] overflow-hidden hover:cursor-pointer ${
         fadeOut ? "transition-opacity opacity-0 duration-200" : ""
       }`}
       onClick={() => {
@@ -39,12 +39,12 @@ function Welcome() {
         setTimeout(() => navigate("/intro"), 200);
       }}
     >
-      <div className="flex flex-1 flex-col items-center justify-evenly">
+      <div className="flex flex-1 min-h-0 flex-col items-center justify-evenly">
         <img
           src={loading}
           alt="3V logo"
           title="Click to enter"
-          className="object-contain h-[50%]"
+          className="object-contain w-full max-w-xs xl:max-w-lg"
         />
         <span className="relative h-8 w-8">
           <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#fd5e0f] opacity-50"></span>
