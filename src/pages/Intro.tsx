@@ -88,39 +88,40 @@ function VideoContainer({
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
   const [btnHidden, setBtnHidden] = React.useState<boolean>(false);
   const vidContainerRef = React.useRef<HTMLDivElement | null>(null);
+  const onStarted = React.useCallback(() => {
+    setBtnHidden(true);
+    videoRef.current?.removeEventListener("play", onStarted);
+  }, []);
   const onEnded = React.useCallback(() => {
     setBtnHidden(false);
-    videoRef.current?.removeEventListener("ended", onEnded);
     videoRef.current?.load();
   }, []);
   const onPaused = React.useCallback(() => {
     setBtnHidden(false);
-    videoRef.current?.removeEventListener("pause", onPaused);
   }, []);
+  
+  React.useEffect(() => {
+    videoRef.current?.addEventListener("playing", onStarted);
+      videoRef.current?.addEventListener("ended", onEnded);
+      videoRef.current?.addEventListener("pause", onPaused);
+    return () => {
+      videoRef.current?.removeEventListener("playing", onStarted);
+      videoRef.current?.removeEventListener("ended", onEnded);
+      videoRef.current?.removeEventListener("pause", onPaused);
+    };
+  }, [onStarted, onEnded, onPaused]);
+
   React.useEffect(() => {
     if (playing && playing !== title) {
       videoRef.current?.pause();
       setBtnHidden(false);
     }
   }, [playing, title]);
-  // React.useEffect(() => {
-  //   const onresize = () => {
-  //     if (vidContainerRef.current) {
-  //       const cs = getComputedStyle(vidContainerRef.current);
-  //       const vidStyle = videoRef.current?.style;
-  //       if (vidStyle) {
-  //         vidStyle.width = `${cs.width}px`;
-  //         vidStyle.height = `${cs.height}px`;
-  //       }
-  //     }
-  //   };
-  //   onresize();
-  //   window.addEventListener("resize", onresize);
-  //   window.scrollTo(0, 0);
-  //   return () => {
-  //     window.removeEventListener("resize", onresize);
-  //   };
-  // }, []);
+  const onPlay = () => {
+    videoRef.current?.play();
+    setBtnHidden(true);
+    setPlaying(title);
+  };
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="mb-8">{title}</div>
@@ -128,23 +129,14 @@ function VideoContainer({
         className="flex-col flex flex-grow-0 items-center justify-center overflow-hidden"
         ref={(r) => (vidContainerRef.current = r)}
       >
-        <PlayButton
-          hidden={btnHidden}
-          onClick={() => {
-            videoRef.current?.addEventListener("ended", onEnded);
-            videoRef.current?.addEventListener("pause", onPaused);
-            videoRef.current?.play();
-            setBtnHidden(true);
-            setPlaying(title);
-          }}
-        />
+        <PlayButton hidden={btnHidden} onClick={onPlay} />
         <video
           ref={(r) => (videoRef.current = r)}
           disablePictureInPicture
           poster={poster}
           src={url}
           className="object-contain max-h-screen w-full"
-          controls={btnHidden}
+          controls={true}
         />
       </div>
     </div>
