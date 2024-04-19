@@ -143,7 +143,7 @@ function VideoContainer({
           disablePictureInPicture
           poster={poster}
           src={url}
-          className="object-contain max-h-screen"
+          className="object-contain max-h-screen w-full"
           controls={btnHidden}
         />
       </div>
