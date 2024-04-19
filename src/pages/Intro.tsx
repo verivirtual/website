@@ -36,7 +36,7 @@ export default function Intro() {
           setPlaying={setPlaying}
         />
         <VideoContainer
-          url="https://d35w2e6bivcda.cloudfront.net/proto.mp4"
+          url="https://d35w2e6bivcda.cloudfront.net/proto2.mp4"
           poster={protoPoster}
           title="PROTOTYPE"
           playing={playing}
