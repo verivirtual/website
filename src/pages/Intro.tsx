@@ -9,22 +9,24 @@ export default function Intro() {
   const [playing, setPlaying] = React.useState<string>("");
   return (
     <Page>
-      <div className="flex flex-1 flex-grow flex-col justify-center items-center py-4 gap-y-8 md:gap-y-12 mb-4">
-        <div className="flex justify-center">
-          <img src={logo} alt="3V logo" className="max-h-[200px]" />
-        </div>
-        <div className="flex flex-col px-8 items-center gap-8 max-w-3xl text-justify lg:text-center">
-          <div>
-            We take exceptional and construction-ready architectural designs and
-            create full digital twins in the world's best games engine.
+      <div className="flex flex-1 flex-grow flex-col justify-center items-center py-4 gap-y-16 md:gap-y-24 mb-8">
+        <div className="flex flex-col justify-center items-center gap-y-8 md:gap-y-12">
+          <div className="flex justify-center">
+            <img src={logo} alt="3V logo" className="max-h-[200px]" />
           </div>
-          <div>3V architecture is true to life.</div>
-          <div>
-            Avatars - as clients, architects, contractors, realtors, or members
-            of the public - explore, live, feel and interact in our 3V
-            creations.
+          <div className="flex flex-col px-8 items-center gap-8 max-w-3xl text-justify lg:text-center">
+            <div>
+              We take exceptional and construction-ready architectural designs
+              and create full digital twins in the world's best games engine.
+            </div>
+            <div>3V architecture is true to life.</div>
+            <div>
+              Avatars - as clients, architects, contractors, realtors, or
+              members of the public - explore, live, feel and interact in our 3V
+              creations.
+            </div>
+            <div>Life is a game. Let's live it verivirtually.</div>
           </div>
-          <div>Life is a game. Let's live it verivirtually.</div>
         </div>
         <VideoContainer
           url="https://d35w2e6bivcda.cloudfront.net/about.mp4"
@@ -36,7 +38,7 @@ export default function Intro() {
         <VideoContainer
           url="https://d35w2e6bivcda.cloudfront.net/proto.mp4"
           poster={protoPoster}
-          title="3V Prototype"
+          title="Prototype"
           playing={playing}
           setPlaying={setPlaying}
         />
@@ -120,7 +122,7 @@ function VideoContainer({
   // }, []);
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="text-lg mb-4">{title}</div>
+      <div className="mb-4">{title}</div>
       <div
         className="flex-col flex flex-grow-0 items-center justify-center overflow-hidden"
         ref={(r) => (vidContainerRef.current = r)}
