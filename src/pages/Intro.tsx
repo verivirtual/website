@@ -55,11 +55,12 @@ export default function Intro() {
           </div>
         </div> */}
         <div className="text-center">
+          <div className="mb-4">Contact</div>
           To join the community or discuss your project to go verivirtual,
           please contact us at:
           <br />
           <div className="flex justify-center">
-            <div className="border-b border-white hover:border-b-0 hover:cursor-pointer">
+            <div className="hover:border-b-0">
               <a className="link-text" href="#self">
                 info AT verivirtual DOT com
               </a>
